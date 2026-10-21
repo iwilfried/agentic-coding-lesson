@@ -206,9 +206,14 @@
   // ---------- Bewertung des Abschlussquiz ----------
   // richtig: Anzahl richtiger Antworten, gesamt: Anzahl Fragen.
   // Gibt einen kurzen Rückmeldetext für die Ergebnis-Seite zurück.
+  // Stufen in Prozent, damit sie auch bei mehr oder weniger Fragen stimmen.
   function feedbackText(richtig, gesamt) {
-    // TODO(human): Rückmeldung je nach Ergebnis formulieren
-    return "";
+    const anteil = gesamt ? richtig / gesamt : 0;
+
+    if (anteil === 1)    return "🏆 Perfekt! Du kannst Agenten sicher einsetzen. Probier jetzt die Praxisaufgabe in Lektion 6 aus.";
+    if (anteil >= 0.75)  return "💪 Sehr gut! Schau dir unten die offenen Punkte noch einmal an, dann sitzt alles.";
+    if (anteil >= 0.5)   return "👍 Solide Basis. Wiederhole die Fragen unten und mach das Quiz danach noch einmal.";
+    return "🔁 Noch nicht ganz. Geh die Lektionen in Ruhe noch einmal durch und versuch es dann erneut. Jeder Durchgang zählt.";
   }
 
   // ---------- Hilfen ----------
