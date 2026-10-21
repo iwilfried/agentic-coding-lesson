@@ -31,6 +31,21 @@ Ordnerinhalt hochladen, den Link an die Studierenden geben. Auf dem Handy:
 - **iPhone (Safari):** Teilen → „Zum Home-Bildschirm“
 - **Android (Chrome/Edge):** Button „Als App installieren“ in der App oder Browser-Menü → „App installieren“
 
+Live-Version: <https://iwilfried.github.io/agentic-coding-lesson/>
+
+### Eigenes Hosting (z. B. Strato)
+
+1. Im Kundenbereich das **SSL-Zertifikat** für die Domain aktivieren.
+2. Per **SFTP** verbinden (z. B. mit WinSCP oder FileZilla). Server, Benutzer und Passwort stehen in der SFTP/FTP-Verwaltung.
+3. Ordner anlegen, z. B. `agentic`, und hochladen:
+   `index.html`, `lesson.js`, `manifest.webmanifest`, `sw.js`, die drei Icons und **`.htaccess`**.
+   **Nicht** hochladen: den Ordner `.git` und `ANLEITUNG.md`.
+4. Aufrufen: `https://deine-domain.de/agentic/`
+
+Die `.htaccess` setzt den richtigen Dateityp für das Manifest, leitet `http://` auf `https://` um
+und verhindert, dass `sw.js` lange zwischengespeichert wird. Windows-Explorer blendet Dateien mit Punkt am Anfang
+manchmal aus. In WinSCP/FileZilla ist sie sichtbar.
+
 ## Inhalte ändern
 
 Alles steht in `lesson.js`. Schritt-Typen:
